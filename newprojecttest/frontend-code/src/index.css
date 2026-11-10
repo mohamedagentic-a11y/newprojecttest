@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Cairo', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue-600;
+  }
+
+  [dir='rtl'] {
+    font-family: 'Cairo', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    letter-spacing: 0;
+  }
+
+  [dir='ltr'] {
+    letter-spacing: normal;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold leading-tight;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  a {
+    @apply text-blue-600 underline-offset-2;
+  }
+
+  a:hover {
+    @apply underline;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition-colors;
+    @apply focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-30;
+    @apply disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-400;
+  }
+
+  [dir='rtl'] input,
+  [dir='rtl'] textarea,
+  [dir='rtl'] select {
+    text-align: right;
+  }
+
+  button {
+    @apply cursor-pointer transition-colors;
+  }
+
+  button:disabled {
+    @apply cursor-not-allowed opacity-50;
+  }
+
+  img,
+  svg,
+  video {
+    @apply max-w-full;
+  }
+
+  table {
+    @apply w-full border-collapse;
+  }
+
+  th {
+    @apply text-start font-semibold;
+  }
+
+  td {
+    @apply text-start;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-600;
+  }
+
+  .btn-secondary {
+    @apply btn bg-white text-gray-700 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:ring-gray-400;
+  }
+
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-600;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-gray-600 hover:bg-gray-100 focus-visible:ring-gray-400;
+  }
+
+  .card {
+    @apply rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-200;
+  }
+
+  .form-label {
+    @apply mb-1 block text-sm font-medium text-gray-700;
+  }
+
+  [dir='rtl'] .form-label {
+    @apply text-right;
+  }
+
+  .form-error {
+    @apply mt-1 text-xs text-red-600;
+  }
+
+  [dir='rtl'] .form-error {
+    @apply text-right;
+  }
+
+  .form-hint {
+    @apply mt-1 text-xs text-gray-500;
+  }
+
+  [dir='rtl'] .form-hint {
+    @apply text-right;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .badge-blue {
+    @apply badge bg-blue-100 text-blue-800;
+  }
+
+  .badge-green {
+    @apply badge bg-green-100 text-green-800;
+  }
+
+  .badge-yellow {
+    @apply badge bg-yellow-100 text-yellow-800;
+  }
+
+  .badge-red {
+    @apply badge bg-red-100 text-red-800;
+  }
+
+  .badge-gray {
+    @apply badge bg-gray-100 text-gray-800;
+  }
+
+  .badge-gold {
+    @apply badge bg-amber-100 text-amber-800;
+  }
+
+  .alert {
+    @apply flex items-start gap-3 rounded-lg px-4 py-3 text-sm;
+  }
+
+  .alert-info {
+    @apply alert bg-blue-50 text-blue-800;
+  }
+
+  .alert-success {
+    @apply alert bg-green-50 text-green-800;
+  }
+
+  .alert-warning {
+    @apply alert bg-yellow-50 text-yellow-800;
+  }
+
+  .alert-error {
+    @apply alert bg-red-50 text-red-800;
+  }
+
+  .page-container {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold text-gray-900;
+  }
+
+  .divider {
+    @apply my-4 border-t border-gray-200;
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded bg-gray-200;
+  }
+
+  .link-nav {
+    @apply rounded px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900;
+  }
+
+  .link-nav-active {
+    @apply rounded px-3 py-2 text-sm font-medium bg-blue-50 text-blue-700;
+  }
+
+  .table-container {
+    @apply w-full overflow-x-auto rounded-lg ring-1 ring-gray-200;
+  }
+
+  .table-base {
+    @apply min-w-full divide-y divide-gray-200 text-sm;
+  }
+
+  .table-th {
+    @apply bg-gray-50 px-4 py-3 text-start text-xs font-semibold uppercase tracking-wide text-gray-500;
+  }
+
+  .table-td {
+    @apply px-4 py-3 text-gray-700;
+  }
+
+  .table-tr-hover {
+    @apply transition-colors hover:bg-gray-50;
+  }
+
+  .spinner {
+    @apply inline-block h-5 w-5 animate-spin rounded-full border-2 border-current border-t-transparent;
+  }
+
+  .modal-backdrop {
+    @apply fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 p-4;
+  }
+
+  .modal-panel {
+    @apply w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-blue-50 hover:text-blue-700;
+  }
+
+  .sidebar-link-active {
+    @apply flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium bg-blue-100 text-blue-700;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.gray.300') transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-gray-300;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .transition-base {
+    @apply transition-all duration-200 ease-in-out;
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .rtl-flip {
+    transform: scaleX(1);
+  }
+
+  [dir='rtl'] .rtl-flip {
+    transform: scaleX(-1);
+  }
+
+  .writing-h {
+    writing-mode: horizontal-tb;
+  }
+}
